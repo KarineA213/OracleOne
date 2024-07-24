@@ -1,0 +1,315 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --cor-texto: #060606;
+    --cor-fundo: #f4e7ef;
+    --cor-content: #ffc4e8;
+    --cor-button1: #ffc4e8;
+    --cor-button2: #fff6fb;
+    font-family: 'montserrat',sans-serif;
+}
+/*
+--cor-button1: #f56499; */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'montserrat', sans-serif;
+}
+
+html, body{
+    max-height: 100vh;
+    overflow: hidden;
+
+}
+
+body{
+    background-color: var(--cor-fundo);
+   max-height: 100vh;
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    color: var(--cor-texto);
+    font-family: 'montserrat', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0 0 10px;
+
+}
+
+
+
+.cabecalho img{
+    max-width: 700px;
+    max-height: 70px;
+}
+
+.containers{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container-input{
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    padding-top: 0;
+    text-align: center;
+    align-items: center;
+    word-break: break-word;
+    overflow: hidden;
+
+
+   
+
+
+}
+
+
+
+
+#input-texto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'montserrat', sans-serif;
+    width: 60%;
+    height: 300px;
+    font-size: 20px;
+    color: var(--cor-texto);
+    background-color: var(--cor-content);
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 10px ;
+    text-transform: uppercase;
+    border-radius: 35px;
+
+    
+   
+}
+
+
+
+
+
+
+.container-output{
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    overflow: hidden;
+}
+
+#output{
+    display: flex;
+    justify-content: center;
+    border: 3px solid var(--cor-texto);
+    width: 60%;
+    height: 300px;
+    font-size: 20px;
+    color: var(--cor-texto);
+    background-color: var(--cor-content);
+    box-shadow: none;
+    border: none;
+    outline: 0;
+    padding: 10px ;
+    text-transform: uppercase;
+    border-radius: 35px;
+    }
+
+
+
+.img-texto{
+    max-width: 280px;
+    max-height: 280px;
+
+}
+
+.msg-output{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    min-width: 92%;
+    margin-left: 2%;
+    overflow-x: hidden;
+
+}
+
+
+
+#output h2{
+    text-align: center;
+    font-size: 1.56rem;
+    color: var(--cor-texto);
+    background-color: var(--cor-content);
+    font-family: 'montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+
+}
+
+.copy-link-button{
+        width: 25px;
+        height: 25px;
+            
+    }
+
+
+.copy-img{
+    position: relative;
+    max-width: 25px;
+    max-width: 25px;
+    box-shadow: none;
+    border: none;
+    outline: 0;
+
+
+}
+
+
+p{
+    font-size: 16px;
+    text-align: center;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    gap: 20px;
+    align-items: center
+}
+
+.button{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+
+.btn-criptografar{
+    background-color: var(--cor-button1);
+    color: #060606;
+    font-weight: 400;
+    width:370px;
+    padding: 1.8rem;
+    border-radius: 20px;
+   border: none;
+   font-size: 16px;
+
+}
+
+.btn-criptografar :link :hover{
+    background-color: var(--cor-button2);
+    border: 2px solid var(--cor-button1);
+}
+
+
+
+
+.btn-descriptografar{
+    width:370px;
+    padding: 1.8rem;
+    border-radius: 20px;
+    border: 2px solid var(--cor-button1);
+    background-color: var(--cor-button2) ;
+    font-size: 16px;
+}
+
+
+@media (max-width:700px){
+
+
+    .cabecalho{
+        padding-top: 10px;
+    }
+
+    p{
+        font-size: 12px;
+    }
+
+
+
+
+
+    #input-texto{
+        height: 210px;
+        width: 85%;
+        font-size: 15px;
+
+    }
+
+
+
+    #output{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 85%;
+        height: 210px;
+        text-align: center;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .img-texto{
+        max-width: 110px;
+        max-height: 110px;
+    }
+
+    .msg-output{
+        min-height: 90%;
+    }
+
+    #output h2{
+        text-align: center;
+        font-size: 15px;
+        max-height: 90%;
+
+    }
+
+  
+
+    .copy-link-button{
+        max-width: 16px;
+        max-height: 16px;
+        position: static;
+    }
+
+    .copy-img{
+        max-width: 16px;
+        max-height: 16px;
+    }
+
+    .button-container{
+        padding-top: 3%;
+    }
+
+    .button{
+        display: flex;
+        flex-direction: column;
+        padding-top: 5px;
+
+    }
+
+    @media screen {
+
+    }
+}

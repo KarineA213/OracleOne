@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <header class="cabecalho">
+
+        <img src="img/logo2.png" alt="logo karine tech">
+       
+    </header>
+    
+    <main>
+
+        <div class="containers">
+            <div class="container-input">
+               
+                
+
+                    <textarea id="input-texto" autocomplete="off"   style="text-align: center"> 
+                    </textarea>
+                
+                    
+                    
+                
+            </div>
+        
+            <div class="container-output">
+                <div id="output"> 
+                
+                    <div class="msg-output" >
+                        <img id="output-image" class="img-texto" src="img/Png sem msg rsoa .png">
+                        <h2 id="output-text"> Sua cifra de césar aparecerá aqui</h2>
+                        <h2 id="empty-input" style="display: none;">Digite a mensagem a ser usada</h2>
+                    
+                    </div> 
+                        <button type="button" id="copy-link" class="copy-link-button" onclick="copy()" style="display: none;"> <img  id="copy-img" class="copy-img" src="img/icons8-copiar-36.png">
+                        </button>
+                </div>
+            </div>
+        </div>
+    
+        <p> <img class="img-p" src="img/icons8-exclamação-25.png">Apenas letras sem acentos </p>
+        
+        <div class="button-container">
+            <div class="button">
+                <button onclick="criptografar()" class="btn-criptografar"> Criptografar</button>
+                <button onclick="descriptografar()" class="btn-descriptografar"> Descriptografar</button>
+
+            </div>
+
+        </div>
+    </main>
+
+    
+        <footer class="rodape">
+        </footer>
+
+        <script src="interacao/script.js"></script>
+</body>
+</html>
