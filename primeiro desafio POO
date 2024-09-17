@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+import static java.awt.SystemColor.menu;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        double precoProduto;
+        int quantidade;
+        float valorEmDolares = 4.94F;
+        int input = 0;
+        boolean voltarMenu = true;
+
+
+
+        char seguirPrograma;
+        System.out.println("Deseja prosseguir com o programa? digite 's' para sim, e 'n' para não");
+
+        seguirPrograma = sc.next().charAt(0);
+        if (seguirPrograma == 's') {
+
+
+
+
+            while (voltarMenu) {
+
+                System.out.println("""
+                    
+                    Digite a opção desejada
+                    '1' para saber a média das notas
+                    '2' para saber valor total de um produto em estoque
+                    '3' para conversão de reais para dólares
+                    '4' para valor total do produto com desconto
+                    '0' para encerrar o programa
+                    """);
+                input = sc.nextInt();
+
+            switch (input) {
+
+                case 1:
+                    System.out.println("insira a primeira nota");
+                    int nota1 = sc.nextInt();
+                    System.out.println("insira a segunda nota");
+                    int nota2 = sc.nextInt();
+                    double media = (int) (nota1 + nota2) / 2;
+
+                    System.out.println("Resultado da média " + media);
+                    break;
+
+                case 2:
+                    System.out.println("valor total do produto em estoque");
+                    System.out.println("Digite o preço do produto: ");
+                    precoProduto = sc.nextDouble();
+                    System.out.println("Digite a quantidade do produto: ");
+                    quantidade = sc.nextInt();
+
+                    System.out.println(precoProduto * quantidade);
+
+                    break;
+
+                case 3:
+                    System.out.println("Faça sua conversão de reais para doláres");
+                    System.out.println("Digite o valor em reais a ser convertido: ");
+                    float valorEmReais = sc.nextFloat();
+                    float valorConversao = (int) valorEmReais / valorEmDolares;
+                    System.out.println("valor total de reais para dólares " + valorConversao);
+                    break;
+
+
+                case 4:
+                    double precoOriginal = 20.00;
+                    double percentualDEsconto = 0.1;
+                    double valorTotal = precoOriginal * percentualDEsconto;
+                    System.out.println("Valor total com desconto: " + valorTotal);
+                break;
+
+                case 0:
+                    voltarMenu = false;
+                    System.out.println("encerrando");
+                    break;
+
+
+                default:
+                    System.out.println("opção invalida");
+                    break;
+            }
+            }
+        }else{
+
+            System.out.println("obrigada por acessar");
+
+
+        }
+
+
+    }
+}
