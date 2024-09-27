@@ -1,0 +1,163 @@
+package contaBancaria;
+
+import java.util.Scanner;
+
+public class AppBanco {
+
+    public static void main(String[] args) {
+
+        boolean voltarMenu = true;
+        int tentativas = 0;
+        Scanner sc = new Scanner(System.in);
+        Banco banco = new Banco();
+
+        DadosUsuario usuario1 = new DadosUsuario("Ivan Fernandes", "13221321321", "Corrente", 1323.21, 213456);
+        DadosUsuario usuario2 = new DadosUsuario("Alice Beiramar", "34532421321", "Corrente", 34212.32, 213457);
+        DadosUsuario usuario3 = new DadosUsuario("Guilherme Pereira", "78676545323", "Corrente", 23786.5, 213458);
+
+        banco.adicionarUsuario(usuario1);
+        banco.adicionarUsuario(usuario2);
+        banco.adicionarUsuario(usuario3);
+
+        System.out.println("Para iniciar na sua conta digite seu Cpf");
+        String EntradaCpfUsuario = sc.next();
+        DadosUsuario usuario = banco.buscarUsuario(EntradaCpfUsuario);
+
+
+        if (EntradaCpfUsuario.equals(usuario.getCpf())) {
+
+            System.out.println("Digite sua Senha para confirmar sua identidade");
+            int entradaSenhaUsuario = sc.nextInt();
+
+
+            if (usuario.getSenha() == entradaSenhaUsuario) {
+                System.out.println("Senha confirmada!");
+                System.out.println("");
+                banco.exibirUsuario(EntradaCpfUsuario);
+
+
+
+                while (voltarMenu) {
+
+
+                    System.out.println("""
+                            '1' Realizar Transferências
+                            '2' Consultar Saldo
+                            '0' sair
+                            """);
+                    int input = sc.nextInt();
+
+
+                    switch (input) {
+
+                        case 1:
+                            System.out.println("Realizar Transferência");
+
+
+                            System.out.println("Digite o Cpf (Sem pontos ou traços) do titular da conta para qual deseja fazer a transferência");
+                            String EntradaCpfRecebedor = sc.next();
+                            usuario = banco.buscarUsuario(EntradaCpfRecebedor);
+
+
+                            if (usuario != null) {
+
+                                System.out.println("qual valor que deseja transferir?");
+                                double valorTransfer = sc.nextDouble();
+                                System.out.println("Seu saldo após a trasferência será de ");
+                                usuario = banco.buscarUsuario(EntradaCpfUsuario);
+                                System.out.println(usuario.getSaldo() - valorTransfer);
+
+
+                                System.out.println("Confirma que a transferência será feita para esta pessoa?");
+
+                                System.out.println(banco.buscarUsuario(EntradaCpfRecebedor).getNome());
+                                System.out.println(banco.buscarUsuario(EntradaCpfRecebedor).getCpf());
+                                System.out.println("Transferência no valor de " + valorTransfer);
+
+                                System.out.println("""
+                                        '1' para sim
+                                        '2' para não
+                                        """);
+                                int confirmarTransferencia = sc.nextInt();
+
+                                switch (confirmarTransferencia) {
+                                    case 1:
+
+                                        if (valorTransfer > banco.buscarUsuario(EntradaCpfUsuario).getSaldo()) {
+                                            System.out.println("Saldo insuficiente! Por favor, tente novamente");
+
+                                        } else {
+
+                                            while (tentativas < 3) {
+
+                                                System.out.println("Digite sua senha para confirmar sua transferência");
+                                                entradaSenhaUsuario = sc.nextInt();
+                                                tentativas++;
+
+
+                                                if (banco.buscarUsuario(EntradaCpfUsuario).getSenha() == entradaSenhaUsuario) {
+                                                    System.out.println("Senha confirmada!");
+
+                                                    DadosUsuario usuarioRecebedor = banco.buscarUsuario(EntradaCpfRecebedor);
+                                                    usuarioRecebedor.setSaldo(usuarioRecebedor.getSaldo() + valorTransfer);
+
+                                                    banco.buscarUsuario(EntradaCpfUsuario).setSaldo(banco.buscarUsuario(EntradaCpfUsuario).getSaldo() - valorTransfer);
+                                                    System.out.println("Transferência realizada com sucesso");
+
+
+                                                } else if (tentativas == 3) {
+                                                    System.out.println("Tentativas excedidas!");
+                                                } else {
+                                                    System.out.println("Senha Incorreta, tente novamente.");
+                                                }
+                                                break;
+
+                                            }
+                                        }
+
+                                        break;
+
+                                    case 2:
+                                        System.out.println(voltarMenu);
+                                        break;
+
+                                    default:
+                                        System.out.println("opção invalida");
+                                        break;
+                                }
+
+
+                            } else {
+                                System.out.println("Usuario não encontrado;");
+                            }
+
+
+                            break;
+
+                        case 2:
+                            System.out.println("Consultar Saldos");
+                            System.out.println(banco.exibirUsuario(EntradaCpfUsuario));
+
+
+                        case 0:
+
+                            voltarMenu = false;
+
+                            break;
+
+                    }
+
+
+                }
+
+
+            }
+
+        } else {
+            System.out.println("Usuario não encontrado;");
+
+        }
+
+
+    }
+}
